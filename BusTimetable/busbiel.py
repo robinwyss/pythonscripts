@@ -11,4 +11,3 @@ def load_timetable_html(bus_line, station_name, direction ):
     html_doc = mybytes.decode("utf8")
     fp.close()
     return html_doc
-
