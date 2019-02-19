@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import re
 from collections import namedtuple
 
-departures = namedtuple('Timetable', ['nextdepartures', 'table'])
+departures = namedtuple('Timetable', ['nextdepartures', 'departuretimes'])
 
 
 def extract_departures(html_doc):

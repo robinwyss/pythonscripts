@@ -9,7 +9,7 @@ class Test_Extractor(unittest.TestCase):
 
     def test_timetable(self):
         departures = extract_departures(timetable_html_doc)
-        self.assertEquals(departures.table, [('20', ['47']),('21', ['02', '17', '32', '47']),('22', ['02', '17', '32', '47']),('23', ['02', '17', '32', '47']), ('00', ['02', '17', '32'])])
+        self.assertEquals(departures.departuretimes, [('20', ['47']),('21', ['02', '17', '32', '47']),('22', ['02', '17', '32', '47']),('23', ['02', '17', '32', '47']), ('00', ['02', '17', '32'])])
 
     def test_buslines(self):
         buslines = extract_buslines(buslines_html_doc)
