@@ -18,6 +18,7 @@ def generateimage(nextdepartures, departuretimes, forecast):
     draw_nextdepartures(draw, nextdepartures)
     draw_departuretimes(draw, departuretimes)
     draw_time(draw)
+    draw_forecast(draw, forecast)
     im.save('img.png', 'PNG')
 
 def draw_nextdepartures(draw, nextdepartures):
@@ -39,4 +40,11 @@ def draw_departuretimes(draw, departuretimes):
 def draw_time(draw):
     timestr = datetime.now().strftime("%H:%M")
     draw.text((imgwidth - (6 * charwidth) - margin, margin), timestr)
+
+def draw_forecast(draw, forecast):
+    ydelta = lineheight + (margin * 10)
+    current = forecast["currently"]
+    startx = imgwidth / 2
+    draw.text((startx, ydelta), current["summary"])
+    draw.text((startx, ydelta + lineheight), str(current["temperature"]) + "°")
 
