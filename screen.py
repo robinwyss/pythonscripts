@@ -9,7 +9,7 @@ if platform.node() == 'raspberrypi':
         epd.clear_frame_memory(0xFF)
         epd.set_frame_memory(image, 0, 0)
         epd.display_frame()
-
+        epd.sleep()
 
 else:
     def showImageOnScreen(image):

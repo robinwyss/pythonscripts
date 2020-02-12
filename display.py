@@ -51,7 +51,7 @@ def draw_nextdepartures(draw, nextdepartures):
     text = ""
     for departure in nextdepartures:
         text += str(departure) + ' min '
-    draw_text(draw, (margin, margin), text)
+    draw_text(draw, (margin, margin +  3), text)
 
 def draw_departuretimes(draw, departuretimes):
     ydelta = lineheight + (margin * 3)
@@ -68,13 +68,14 @@ def draw_departuretimes(draw, departuretimes):
 
 def draw_time(draw):
     timestr = datetime.now().strftime("%H:%M")
-    draw_text(draw, (imgwidth - (6 * charwidth) - margin, margin), timestr)
+    draw_text(draw, (imgwidth - (6 * charwidth) - margin, margin + 3), timestr)
 
 
 def draw_date(draw):
+    ydelta = lineheight + (margin * 3)
     timestr = datetime.now().strftime("%d.%m.%y")
     draw_text(draw, (imgwidth - (9 * charwidth) -
-                     margin, margin + lineheight), timestr)
+                     margin, ydelta), timestr)
 
 
 def draw_forecast(draw, forecast):
@@ -98,6 +99,11 @@ def draw_forecast(draw, forecast):
     for line in lines:
         draw_text(draw, (startx, ydelta), line)
         ydelta += lineheight
+    daily = forecast["daily"]
+    today = daily["data"][0]
+    minTemp = today["temperatureMin"]
+    maxTemp = today["temperatureMax"]
+    draw_text(draw, (startx, ydelta), "Min " + str(round(minTemp)) + "° Max " + str(round(maxTemp)) + "°")
 
 
 def draw_text(draw, pos, text):
