@@ -5,3 +5,4 @@ cachetools==3.1.0
 RPi.GPIO==0.6.5
 spidev==3.4
 urllib3>=1.25.9 # not directly required, pinned by Snyk to avoid a vulnerability
+certifi>=2023.7.22 # not directly required, pinned by Snyk to avoid a vulnerability
